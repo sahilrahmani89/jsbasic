@@ -20,7 +20,9 @@ class circularQueue{
 	}
 	enqueue(value){
 		if(!this.isfull()){
+		
 			this.rear = (this.rear + 1) % this.capacity
+			
 			this.item[this.rear] = value
 			this.size += 1
 			if(this.front===-1){
@@ -28,7 +30,7 @@ class circularQueue{
 			}
 		}
 		else{
-			console.log('queuee is full')
+			// console.log('queuee is full')
 		}
 	}
 	dequeue(){
@@ -38,6 +40,7 @@ class circularQueue{
 			const items = this.item[this.front]
 			this.item[this.front] = null
 			this.front = (this.front+1) % this.capacity
+			
 			this.size -= 1
 		if(this.isempty()){
 			this.front = -1
@@ -47,7 +50,7 @@ class circularQueue{
 	}
 	print(){
 		if(this.isempty()){
-			console.log('queue is empty')
+			// console.log('queue is empty')
 		}
 		else{
 			let i 
@@ -56,13 +59,13 @@ class circularQueue{
 				res+= this.item[i]+ ` `
 			}
 			res+= this.item[i]
-			console.log(res)
+			// console.log(res)
 			return res
 		}
 	}
 	peek(){
 		if(this.isempty()){
-			console.log('queue is empty')
+			// console.log('queue is empty')
 			return null
 		}
 		else{
