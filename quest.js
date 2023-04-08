@@ -96,20 +96,173 @@ function removedEvenFun(a){
 removedEvenFun(a)
 }
 {
+//Write a function that takes an array of strings as input and returns a new array with all the strings that contain the letter "a".
+const a = ["apnd", "jhdkjk", "jhds","ldkjslka"]
+const b = a.filter((item)=>item.includes('a'))
 
-
-
+function includesA(a){
+  let arr = []
+  for(let i=0;i<a.length;i++){
+    if(a[i].includes('a')){
+      arr.push(a[i])
+    }
+    
+  }
+  return arr
+}
+includesA(a)
 
 }
 
+{
+//Write a function that takes a string as input and returns true if the string is a palindrome (reads the same forwards and backwards).
 
+function palindrom(str){
+  let strcopy = str
+  let b = str.split('').reverse().join('')
+  if(str===b){
+    // console.log('its palindrom')
+  }
+  else{
+    // console.log('its not palindrom')
+  }
+}
+palindrom('abbad')
 
+}
 
+{
+//Write a function that takes an array of numbers as input and returns the second largest number in the array.
+const a= [3,5,2,1,23,13,1]
+const b = a.sort((a,b)=>a-b)
+// console.log(b[b.length-2])
 
+}
+{
+//Write a function that takes an array of strings as input and returns a new array with all the strings sorted alphabetically.
+const a = ['bdd','dsds','aad']
+const b = a.sort((a,b)=>a.localeCompare(b, undefined, { sensitivity: 'base' }))
 
+}
+{
+//Write a function that takes a string as input and returns the number of vowels in the string.
+const vowel = ['a','e','i','o','u']
+const str = 'kjdhkjs dmnsadabkja kj a dsde'
+//
+function numOfVowels(str){
+  let num = 0
+  for(let i =0; i<str.length;i++){
+    vowel.map((it)=>{
+      str[i]===it && num++
+    })
+  }
+  return num
+}
+numOfVowels(str)
+}
+{
+//Write a function that takes an array of numbers as input and returns the sum of all the odd numbers in the array.
+const a = [2,34,3,2,113,13,13,1,34,17]
+const b = a.reduce((acc,curr)=>{
+              return curr%2 !==0 ?  acc + curr : acc
+         },0)
 
+}
+{
+//Write a function that takes an array of strings as input and returns the longest string in the array.
+const arr = ['akskd','dsjndlksnl','dnslndlksnlk','dnslk','ndsidwijiwndinwi']
+const b = arr.sort((a,b)=>{
+  a.localeCompare(b,undefined,{sensitivity:'base'})
+})
+// console.log(b[b.length-1])
+function findLongestString(arr) {
+  let longestString = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > longestString.length) {
+      longestString = arr[i];
+    }
+  }
+  return longestString;
+}
 
+}
+///
+{
+//Write a function that takes a string as input and returns true if the string contains only digits (0-9).
+function containsOnlyDigit(str){
+  for(let i =0; i<str.length;i++){
+    if(str[i]<'0'||str[i]>'9'){
+      return false
+    }
+  }
+  return true
+}
 
+}
+{
+//Write a function that takes an array of numbers as input and returns the median (middle value) of the numbers in the array.
+function findMedian(arr){
+  arr.sort((a,b)=>a-b)
+  let medianNum = Math.floor(arr.length/2)
+  return arr[medianNum]
+}
+
+}
+{
+///Write a function that takes an array of strings as input and returns a new array with all the strings reversed.
+function reverseEachWord(arr){
+  let word = ''
+  let arr1 = []
+  for(let i =0; i<arr.length;i++){
+      word = arr[i].split('').reverse().join('')
+      arr1.push(word)
+  }
+  return arr1
+}
+
+}
+{
+//Write a function that takes a string as input and returns true if the string is a valid email address.
+function isValidEmail(email) {
+  // Use a regular expression to validate the email address
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+}
+{
+//Write a function that takes an array of strings as input and returns a new array with all the strings that contain at least one digit.
+const arr = ['app','133sdd','dkajhk1', 'kjdh1ds', 'aaple','1'] 
+
+const arr2 = arr.filter((item)=>{
+ return item.split("").some(char => {
+      const charCode = char.charCodeAt(0); 
+      return charCode >= 48 && charCode <= 57; 
+    });
+})
+// console.log(arr2)
+}
+{
+//Write a function that takes an array of strings as input and returns a new array with all the strings that are palindromes.
+const arr = ['abba','cakdkj','asdsa']
+const arr2 = arr.filter((item)=>{
+  const str = item
+  return item.split('').reverse().join('') === item
+})
+// console.log(arr2)
+
+}
+{
+//Write a function that takes a string as input and returns true if the string is a valid URL.
+function isValidURL(str) {
+  try {
+    const url = new URL(str);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+}
 
 
 
