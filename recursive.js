@@ -73,15 +73,42 @@ power(2,3)
 			return 1
 		}
 		else{
-			let smallInstance = fastPower(a,b/2)
-			smallInstance*= smallInstance
-			if(b%2===1){
-
-				return a*smallInstance
+			
+			if(b%2===0){
+				let smallInstance = fastPower(a,b/2)
+			   return smallInstance * smallInstance
 			}
-			console.log('small',smallInstance)
-			return smallInstance
+			else{
+				return a * power(a,b-1)
+			}
+		
 		}
 	}
-	console.log(fastPower(2,6))
+	fastPower(2,6)
 }
+//////// console it increasing and descreasing of num
+{
+
+	function printDecrement(a){
+		if(a===0){
+			return
+		}
+		// console.log(a)
+		printDecrement(a-1)
+	}
+	printDecrement(5)
+
+	function printIncrement(a){
+		if(a===0){
+			return
+		}
+		printIncrement(a-1)
+		// console.log(a)
+
+	}
+	printIncrement(5)
+}
+
+
+
+
