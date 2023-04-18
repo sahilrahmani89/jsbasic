@@ -4,17 +4,17 @@
 const cart = ['vans shoes']
 const promise = addCart(cart)
 .then((data)=>{
-	console.log('cartID', data)
+	// console.log('cartID', data)
 	return data
 })
 .then((data)=>{
 	return proceedToPayment(data)
 })
 .then((message)=>{
-	console.log('message',message)
+	// console.log('message',message)
 })
 .catch((err)=>{
-	console.log('Error',err)
+	// console.log('Error',err)
 })
 
 
@@ -54,3 +54,7 @@ function proceedToPayment(cartId){
 	return promise
 }
 //
+
+
+
+

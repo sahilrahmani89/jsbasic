@@ -1,6 +1,6 @@
 ////////// remove duplicate from string 
 {
-  let a = `app is installed app and app them set`
+    let a = `app is installed app and app them set`
 function remDupStr(a){
   let c = a.split(' ')
   c = [...new Set(c)]
