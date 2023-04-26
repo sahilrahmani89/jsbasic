@@ -57,3 +57,36 @@
 	//The shortcut to look for digit characters is \d
 	//non-digits using a similar shortcut that uses an uppercase D instead.
 }
+{
+	// using curly brackets /a{3,5}h/.
+	let A4 = "aaaah";
+    let A2 = "aah";
+	let multipleA = /a{3,5}h/;
+	multipleA.test(A4); // expected output true
+    multipleA.test(A2); // expected output false
+    //match only the letter a appearing between 3 and 5 times in the string
+    //For example, to match only the string hah with the letter a appearing 
+    //at least 3 times, your regex would be /ha{3,}h/.
+}
+{
+	// ? using in regex
+	//For example, there are slight differences in American and British English 
+	//and you can use the question mark to match both spellings.
+
+	let american = "color";
+	let british = "colour";
+	let rainbowRegex= /colou?r/;
+	rainbowRegex.test(american); //expected  output true
+	rainbowRegex.test(british); // expecred output true
+}
+{
+	//using two words to checks true 
+	// in bracket and or (|)
+	//If you want to find either Penguin or
+	// Pumpkin in a string, you can use the following Regular Expression: /P(engu|umpk)in/g
+	let a = 'Penguin'
+	let b = 'Pumpkin'
+	let regex = /P(engu|umpk)in/g
+	regex.test(a) // expected output true
+	regex.test(b) // expexcted output true
+}
