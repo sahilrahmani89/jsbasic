@@ -108,7 +108,23 @@ power(2,3)
 	}
 	printIncrement(5)
 }
-
+{
+	//multiply two numbers using recursive
+	function sum(a,b){
+		if(b===0){
+			return a
+		}
+		return sum(a+1,b-1)
+	}
+	sum(2,4)
+	
+}
+{
+	//conver a string into integer using recursive
+}
+{
+	// tiling problem
+}
 
 
 
