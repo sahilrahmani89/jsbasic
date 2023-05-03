@@ -94,3 +94,44 @@ function sum(...numbers) {
 // console.log(sum(4, 5, 6, 7)); // 22
 
 }
+{
+	// diff b/w normal and arrow function
+
+	// #1 syntax
+	//  #2 implicit return keyword
+	 const square = (x) => x * x;
+   square(3); // 9
+	// #3 arguments 
+	const a = ()=>{
+		console.log(arguments) // arguments will be not defined
+	}
+	//#4 this keyword 
+	// Arrow functions do not have their own this binding,
+	//  while normal functions do. In arrow functions,
+
+	//#5Prototype: Arrow functions do not have a prototype property, 
+}
+{
+	// lexical scope
+	//Lexical scope is a concept in programming that determines
+	// the visibility and accessibility of variables and functions 
+	//based on their location in the source code.
+}
+{
+	//closure
+	// a closure is a function that has access to variables defined in
+	// its outer (enclosing) function, even after that function has returned. 
+	//A closure is created when a function returns an inner function that retains a
+	// reference to the variables in the outer function's scope chain.
+}
+{
+	//module pattern
+}
+//infinite currying
+{
+
+}
+//currying and partial application 
+{
+	
+}

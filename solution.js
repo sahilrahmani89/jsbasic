@@ -29,3 +29,12 @@ function sumDigit (num){
 }
 sumDigit(5)
 }
+
+//private counter using closure
+{
+
+}
+//caching and memoize function in js 
+{
+
+}
