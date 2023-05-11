@@ -303,10 +303,91 @@ function reverseWord(chars, start, end) {
 
 }
 // Verify a word as palindrome?
+{
+  function verifyPalindrome(str){
+    return str=== str.split('').reverse().join('')
+  }
+  verifyPalindrome('abba')
+}
 // Generate random between 5 to 7 by using defined function.
+{
+  function getRandomNumber() {
+      return Math.floor(Math.random() * 3) + 5;
+  }
+  console.log(getRandomNumber())
+}
 // Find missing number from unsorted array of integers.
+function findMissingNumber(arr) {
+  const n = arr.length + 1;
+  const sumAll = (n * (n + 1)) / 2;
+  const sumArr = arr.reduce((acc, curr) => acc + curr, 0);
+  return sumAll - sumArr;
+}
+
 // Check whether any two numbers in an array sums to a given number?
+{
+  function checkArraySum(arr, target) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i+1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === target) {
+        return true; // found a pair that sums to target
+      }
+    }
+  }
+  return false; // no pair sums to target
+}
+
+}
 // Find the largest sum of any two elements?
+{
+  function largestSum(arr) {
+  arr.sort((a, b) => b - a); // sort array in descending order
+  return arr[0] + arr[1]; // return the sum of first two elements
+}
+
+}
 // Total number of zeros from 1 upto n?
+{
+  function countZeros(n) {
+  let count = 0;
+  let factor = 1;
+  
+  while (n >= factor) {
+    let quotient = Math.floor(n / (factor * 10));
+    let remainder = n % (factor * 10);
+    let digit = Math.floor(remainder / factor);
+    
+    if (digit === 0) {
+      count += quotient * factor;
+    } else if (digit === 1) {
+      count += quotient * factor + remainder - factor + 1;
+    } else {
+      count += (quotient + 1) * factor;
+    }
+    
+    factor *= 10;
+  }
+  
+  return count;
+}
+
+}
 // Match substring of a sting?
+{
+  const str = 'Hello, world!';
+const substring = 'world';
+
+if (str.includes(substring)) {
+  console.log('Substring found!');
+} else {
+  console.log('Substring not found.');
+}
+
+}
 // Create all permutation of a string?
+// Find smallest  repeating substring in js 
+// Write code in js where string something as 3x +12 = 46  and its output as 4
+// When we run this code with the input 'wwwggopp' and 'chalangetokem', 
+//it first compresses the input string to '3w2g1o2p'. The final output is
+// 'wchalangetokemwggchalangetokempo2chalangetokem', 
+//where each character in the compressed string is interspersed with a character from the chalangetokem string.
