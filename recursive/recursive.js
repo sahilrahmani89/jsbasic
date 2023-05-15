@@ -123,6 +123,19 @@ power(2,3)
 }
 {
 	//conver a string into integer using recursive
+	function stringToInteger(str) {
+  if (str === '') {
+    return 0;
+  } else {
+    const num = str.charCodeAt(0) - 48;
+    const remainingStr = str.substring(1);
+    return num * Math.pow(10, str.length - 1) + stringToInteger(remainingStr);
+  }
+}
+
+console.log(stringToInteger('123')); // Output: 123
+console.log(stringToInteger('-456')); // Output: -456
+
 }
 {
 	// tiling problem
