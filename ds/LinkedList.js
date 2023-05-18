@@ -1,588 +1,200 @@
-// // linkedlist
-// class Node{
-//     constructor(value){
-//         this.value = value
-//         this.next = null
-//     }
-// }
-
-// class LinkedList{
-//     constructor(){
-//         this.size = 0
-//         this.head = null
-//     }
-//     getSize(){
-//         return this.size
-//     }
-//     isempty(){
-//         return this.size === 0
-//     }
-//     prepend(value){
-//         const node = new Node(value)
-//         if(this.isempty()){
-//             this.head = node
-//         }
-//         else{
-//             node.next = this.head
-//             this.head = node
-//         }
-//         this.size++
-//     }
-//     append(value){
-//         const node = new Node(value)
-//         if(this.isempty()){
-//             this.head = node
-//         }
-//         else{
-//             let curr = this.head
-//             while(curr.next){
-//                 curr = curr.next
-//             }
-//             curr.next = node
-//         }
-//         this.size++
-//     }
-//     print(){
-//         if(this.isempty()){
-//             console.log('this linked list is empty')
-//         }
-//         else{
-//             let res = ``
-//             let curr = this.head
-//             while(curr){
-//                 res+=`${curr.value } `
-//                 curr= curr.next
-//             }
-//             console.log(res)
-//         }
-//     }
-//     //insert by index
-//     insertByIndex(value,index){
-//         if(index<0 || index>this.size){
-//             console.log('cant do it')
-//         }
-//         else if(index===0){
-//             this.prepend(value)
-//         }
-//         else{
-//             const node = new Node(value)
-//             let curr = this.head
-//             let i
-//             for(i=0;i<index-1;i++){
-//                 curr = curr.next
-//             }
-//             node.next = curr.next
-//             curr.next = node
-//             this.size++
-//         }
-//     }
-// }
-// const list = new LinkedList()
-// list.append(1)
-// list.append(2)
-// list.append(3)
-// list.append(5)
-// list.append(6)
-// list.append(7)
-// list.insertByIndex(4,3)
-// list.print()
-
-/// practice
-// class Node{
-//     constructor(value){
-//         this.value = value
-//         this.next = null
-//     }
-// }
-// class LinkedList{
-//     constructor(){
-//         this.head= null
-//         this.size = 0
-//     }
-//     isempty(){
-//         return this.size ===0
-//     }
-//     getSize(){
-//         return this.size
-//     }
-//     prepend(value){
-//         const node = new Node(value)
-//         if(this.isempty()){
-//             this.head = node
-//         }
-//         else{
-//             node.next = this.head
-//             this.head = node 
-//         }
-//         this.size++
-//     }
-//     append(value){
-//         const node = new Node(value)
-//         if(this.isempty()){
-//             this.head = node
-//         }
-//         else{
-//             let curr = this.head
-//             while(curr.next){
-//                 curr = curr.next
-//             }
-//             curr.next = node
-//         }
-//         this.size++
-//     }
-//     print(){
-//         if(this.isempty()){
-//             console.log('linkedlist is empty')
-//         }
-//         else{
-//             let res = ``
-//             let curr = this.head
-//             while(curr){
-//                 res+= `${curr.value } `
-//                 curr= curr.next
-//             }
-//             console.log(res)
-//         }
-//     }
-//     insertByIndex(value,index){
-//         if(index<0 && this.size<index){
-//             return console.log(`cant perform , inserbyindex`)
-//         }
-//         else if(index===0){
-//             this.prepend(value)
-//         }
-//         else{
-//             const node = new Node(value)
-//             let curr = this.head
-//             for(let i =0; i<index-1;i++){
-//                 curr = curr.next
-//             }
-//             node.next = curr.next
-//             curr.next = node
-//             this.size++
-//         }
-//     }
-//     removeByIndex(index){
-//         if(this.isempty()){
-//             console.log(`lsit empty cant perfomr remove by index`)
-//         }
-//         if(index<0 && index>=this.size){
-//             return console.log(`cant perform, remove by index`)
-//         }
-//         let removeNode
-//         if(index === 0){
-//             removeNode = this.head
-//             this.head = this.head.next
-//             return removeNode
-//         }
-//         else{
-//             let curr = this.head
-//             for(let i =0; i<index-1 ;i++){
-//                 curr = curr.next
-//             }
-//             removeNode = curr.next
-//             curr.next = removeNode.next
-//             this.size--
-//             return removeNode
-//         }
-//     }
-//     //
-//     removedByValue(value){
-//         if(this.isempty()){
-//             console.log(`linkedlist is empty , `)
-//         }
-//         if(this.head.value === value){
-//             this.head = this.head.next
-//             this.size--
-//         }
-//         else{
-//             let curr = this.head
-//             let removeNode
-//             while(curr.next && curr.next.value !== value){
-//                 curr = curr.next
-//             }
-//             if(curr.next){
-//                 removeNode = curr.next
-//                 curr.next = removeNode.next
-//                 this.size--
-//             }
-//             else{
-//             return console.log('value did not found in linkedlist')
-//            }
-//         }
-//     }
-//     // search and return its index
-//     searchByValue(value){
-//         if(this.isempty()){
-//             return -1
-//             console.log(`linkedlist is empty , `)
-//         }
-//         let i = 0
-//         if(this.head.value === value){
-//             console.log(i)
-//             return i
-//         }else{
-//             let curr = this.head
-//              while(curr){
-//                 if(curr.value===value){
-//                     console.log(i)
-//                     return i
-//                 }
-                
-//                     curr = curr.next 
-//                     i++ 
-//              }
-//              console.log('value not exist in search')
-//              return -1
-
-//         }
-//     }
-//     //
-//     reverse(){
-//         let prev = null 
-//         let curr = this.head 
-//        while(curr){
-//          let next = curr.next
-//          console.log('netx',next)
-//          curr.next = prev
-//          console.log('cuurr.next',curr.next)
-//          prev = curr
-//          console.log('prev',prev)
-//          curr = next
-//          console.log('curr',curr)
-//        }
-//        this.head = prev
-
-//     }
-// }
-//
-// const list = new LinkedList()
-// list.append(1)
-// list.append(2)
-// list.append(3)
-// list.print()
-// list.reverse()
-// list.print()
-
-// class Node {
-//     constructor(value){
-//         this.value = value
-//         this.next  = null
-//     }
-// }
-
-// class LinkedList {
-//     constructor(){
-//         this.head = null
-//         this.size = 0
-//     }
-//     isempty(){
-//         return this.size===0
-//     }
-//     getSize(){
-//         return this.size
-//     }
-//     prepand(value){
-//         const node = new Node(value)
-//         if(this.isempty()){
-//             this.head = node
-//         }
-//         else{
-//             node.next = this.head
-//             this.head = node
-//         }
-//         this.size++
-//     }
-//     print(){
-//         if(this.isempty()){
-//             console.log('this is empty')
-//         }
-//         else{
-//             let prev = this.head
-//             let res =``
-//             while(prev){
-//                 res+=`${prev.value} `
-//                 prev= prev.next
-//             }
-//             console.log(res)
-//         }
-//     }
-//     append(value){
-//         const node = new Node(value)
-//         if(this.isempty()){
-//             this.head = node
-//         }
-//         else{
-//             let prev = this.head
-//             while(prev.next){
-//                 prev = prev.next
-//             }
-//             prev.next = node 
-
-//         }
-//         this.size++
-//     }
-//     insertByIndex(value,index){
-        
-//         if(index<0 || index>this.getSize){
-//             console.log('this cant be implemented')
-//         }
-//         else if(index===0 ){
-//             this.prepand(value)
-//         }
-//         else{
-//             const node = new Node(value)
-//             let prev = this.head
-//             for(let i =0 ; i<index-1; i++){
-//                 prev = prev.next
-//             }
-//             node.next = prev.next
-//             prev.next = node 
-//             this.size++
-//         }
-//     }
-//     removeByIndex(index){
-//         if(this.isempty()){
-//             console.log(`lsit empty cant perfomr remove by index`)
-//         }
-//         if(index<0 && index>=this.size){
-//             return console.log(`cant perform, remove by index`)
-//         }
-//         let removeNode
-//         if(index === 0){
-//             removeNode = this.head
-//             this.head = this.head.next
-//             return removeNode
-//         }
-//         else{
-//             let prev = this.head
-//             for(let i = 0 ; i<index-1; i++){
-//                 prev = prev.next
-//             }
-    
-//             removeNode = prev.next
-//             prev.next = removeNode.next
-//             this.size--
-//         }
-//     }
-//     removeByValue(value){
-//         if(this.isempty()){
-//             console.log(`linkedlist is empty , `)
-//         }
-//         if(this.head.value === value){
-//             this.head = this.head.next
-//             this.size--
-//         }
-//         else{
-//             let curr = this.head
-//             let removeNode
-//             while(curr.next && curr.next.value !== value){
-//                 curr = curr.next
-//             }
-//             if(curr.next){
-//                 removeNode = curr.next
-//                 curr.next = removeNode.next
-//                 this.size--
-//             }
-//             else{
-//             return console.log('value did not found in linkedlist')
-//            }
-//         }
-//     }
-//     searchByValue(value){
-//         if(this.isempty()){
-//             return -1
-//             console.log(`linkedlist is empty , `)
-//         }
-//         let i = 0
-//         if(this.head.value === value){
-//             console.log(i)
-//             return i
-//         }else{
-//             let curr = this.head
-//              while(curr){
-//                 if(curr.value===value){
-//                     console.log(i)
-//                     return i
-//                 }
-                
-//                     curr = curr.next 
-//                     i++ 
-//              }
-//              console.log('value not exist in search')
-//              return -1
-
-//         }
-//     }
-//     reverse(){
-//         let prev = null 
-//         let curr = this.head 
-//        while(curr){
-//          let next = curr.next
-//          console.log('netx',next)
-//          curr.next = prev
-//          console.log('cuurr.next',curr.next)
-//          prev = curr
-//          console.log('prev',prev)
-//          curr = next
-//          console.log('curr',curr)
-//        }
-//        this.head = prev
-
-//     }
-
-// }
-
-// const linked = new LinkedList()
-
-// linked.append(1)
-// linked.append(2)
-// linked.append(4)
-// linked.insertByIndex(3,2)
-// linked.removeByIndex(2)
-// linked.insertByIndex(3,2)
-// linked.print()
+// Linked list is linear data structure, like similar to an array
+// In Linked list each element is seperated object that contains pointer and linked to 
+// next object 
+// Each element (commonly called nodes) contains two items: the data stored and a link // to the next node
+// Nodes can easily be removed or added from a linked list without reorganizing the 
+// entire data structure. This is one advantage it has over arrays.
+// its used more memory than array
+// search operation is expensive
 
 
+// type of linked list 
+// Singly Linked Lists: Each node contains only one pointer to the next node. 
+// Doubly Linked Lists: Each node contains two pointers, a pointer to the next node 
+// and pointer to the previous node.
+// Circular Linked Lists: Circular linked lists are a variation of a linked list in 
+// which the last node points to the first node or any other node before it, 
+// thereby forming a loop. 
+
+// real world application 
+ // #Image viewer #Previous and next page in a web browser #Music Player 
+ // #GPS navigation systems //#Robotics // All application used in stack n queue
+
+// Operation of linked list 
+// prepand => add element at head of linked list
+// append => add at the tail of linkedlist
+// getSize => to get length of linked list 
+// isEmpty => to check whether linkedlist is  empty or not 
+// insertByIndex => add element to gievn index
+// removeByIndex => remmove By Index
+// removeByvalue => remove By value
+// searchValue => search value and return true or its index
 
 
-////// Linked list 
-class Node{
+class Node  {
     constructor(value){
         this.value = value
-        this.next = null
-    }
+    this.next = null
+  }
 }
 
-
-class LinkedList {
+class LinkedList{
     constructor(){
-        this.head = null
-        this.size = 0
-    }
-    isempty(){
-        return this.size === 0
-    }
-    getSize(){
-        return this.size
-    }
-    prepand(value){
+    this.head = null // intial state of head
+    this.size = 0
+  }
+  // isEmpty to check whether linkedlist is empty or no
+  isEmpty(){
+    return this.size === 0
+  }
+  //get Size of linked list
+  getSize(){
+    return this.size
+  }
+  // prenpand , add at front of linked list
+  prepand(value){
         const node = new Node(value)
-        if(this.isempty()){
-            this.head = node
-        }
-        else{
-            node.next = this.head
-            this.head = node
-        }
-        this.size++
+      if(this.isEmpty()){
+        this.head = node
+      }
+      else{
+        node.next = this.head
+        this.head = node
+      }
+      this.size++
+  }
+  // append, add at back of linked list
+  append(value){
+    const node = new Node(value)
+    if(this.isEmpty()){
+        this.head = node
     }
-    print(){
-        if(this.isempty()){
-            console.log('linkedlist is empty ')
+    else{
+            let curr = this.head
+        while(curr.next){
+            curr= curr.next
         }
-        else{
-            let res = ` `
-            let prev = this.head
-            while(prev.next){
-                res+=`${prev.value} `
-                prev = prev.next
-            }
-        }
+        curr.next = node 
     }
-    append(value){
-        const node = new Node(value)
-        if(this.isempty()){
-            this.head = node
-        }
-        else{
-            let prev = this.head
-            while(prev.next){
-                prev = prev.next
-            }
-            prev.next = node
-        }
-        this.size++
+    this.size++
+  }
+  //insertByIndex , insert element on linked list to given index value 
+  insertByIndex(index,value){
+    if(index<0 || index>=this.size){
+        return 
     }
-    insertByIndex(value,index){
-        if(index<0 || index>this.size){
-            console.log('cant be implement')
-        }
-        else if(index === 0){
-            this.prepand(value)
-        }
-        else{
-            const node = new Node(value)
-            let prev = this.head
-            for(let i =0 ; i<index-1; i++){
-                prev = prev.next
-            }
-            node.next = prev.next
-            prev.next  = node 
-            this.size++
-        }
+    else if(index===0){
+         this.prepand(value)
     }
+    else{
+ 
+         const node = new Node(value)
+         let curr = this.head
+       let initialPos = 1 
+       while(initialPos<index){
+         curr= curr.next
+        initialPos++
+       }
+        node.next = curr.next
+      curr.next = node
+      this.size++
+    }
+  }
+  // removeByIndex => remmove By Index
     removeByIndex(index){
-        let removeNode
-        if(index<0 || index>this.size){
-            console.log('cant be implement')
+    let removedNode
+    if(index<0||index>this.size){
+        return
+    }
+    else if(index==0){
+        removedNode = this.head.value
+      this.head = this.head.next
+       this.size--
+      return removedNode
+    }
+    else{
+        let curr = this.head
+      let pos = 1
+      while(pos!=index){
+            curr = curr.next
+          pos++
+      }
+      removedNode = curr.next
+      curr.next = removedNode.next
+       this.size--
+    }
+   
+  }
+  // print , traverse to linkedlist and print value 
+  print(){
+    if(this.isEmpty()){
+        console.log('this is empty')
+    }
+    else{
+        let curr = this.head
+      let res = ``
+      while(curr){
+        res+= `${curr.value} `
+        curr = curr.next
+      }
+      return res
+    }
+  }
+  removedByValue(value){
+    let removedNode 
+    if(value===this.head.value){
+            removedNode= this.head.value
+        this.head = this.head.next
+        this.size--
+        return removedNode
+    }
+    else{
+            let curr = this.head
+        while(curr.next && curr.next.value!==value){
+                curr = curr.next
         }
-        else if(index===0){
-            this.head = this.head.next
-            this.size --
+        if(curr.next){
+                removedNode = curr.next
+            curr.next = removedNode.next
         }
         else{
-           let prev = this.head
-            for(let i =0 ; i<index-1;i++){
-                prev = prev.next
-            }
-            removeNode = prev.next
-            prev.next = removeNode.next
-            this.size-- 
+            return false
         }
     }
-    removeByValue(value){
-        if(this.head.value = value){
-            this.head = this.head.next
-            this.size--
+  }
+  searchByValue(value){
+    let i =0
+    if(value===this.head.value){
+            return i
+    }
+    else{
+            let curr = this.head
+        
+        while(curr.next && curr.value!==value){
+                curr = curr.next
+            i++
+        }
+        if(curr){
+            return i
         }
         else{
-            let prev = this.head
-            let removeNode
-            while(prev.next && prev.next.value !== value){
-                prev = prev.next
-            }
-            if(prev.next){
-                removeNode = prev.next
-                prev.next = removeNode.next
-                this.size--
-            }
-            else{
-            return console.log('value did not found in linkedlist')
-           }
+            return false
         }
     }
-    searchValue(value){
-        let i =0
-        if(this.head.value=value){
-            return i 
-        }
-        else{
-            let prev = this.head
-            while(prev){
-                if(prev.value===value){
-                    console.logi
-                    return i
-                }
-                prev = prev.next
-                i++
-            }
-            return -1
-        }
-    }
+  }
 }
 
+const list = new LinkedList()
 
+list.prepand(1)
+list.prepand(3)
+list.prepand(4)
+list.append(0)
+list.insertByIndex(3,2.4)
+console.log(list.print())
+list.removedByValue(1)
+console.log(list.print())
+console.log(list.searchByValue(0))
 
 
 
