@@ -133,8 +133,8 @@ power(2,3)
   }
 }
 
-console.log(stringToInteger('123')); // Output: 123
-console.log(stringToInteger('-456')); // Output: -456
+// console.log(stringToInteger('123')); // Output: 123
+// console.log(stringToInteger('-456')); // Output: -456
 
 }
 {

@@ -314,7 +314,7 @@ function reverseWord(chars, start, end) {
   function getRandomNumber() {
       return Math.floor(Math.random() * 3) + 5;
   }
-  console.log(getRandomNumber())
+  // console.log(getRandomNumber())
 }
 // Find missing number from unsorted array of integers.
 function findMissingNumber(arr) {
@@ -378,9 +378,9 @@ function findMissingNumber(arr) {
 const substring = 'world';
 
 if (str.includes(substring)) {
-  console.log('Substring found!');
+  // console.log('Substring found!');
 } else {
-  console.log('Substring not found.');
+  // console.log('Substring not found.');
 }
 
 }

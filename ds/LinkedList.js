@@ -182,19 +182,29 @@ class LinkedList{
         }
     }
   }
+  reverse(){
+    let current = this.head;
+    let previous = null;
+
+    while (current !== null) {
+      let next = current.next;
+      current.next = previous;
+      previous = current;
+      current = next;
+    }
+
+    this.head = previous;
+  }
 }
 
 const list = new LinkedList()
 
-list.prepand(1)
-list.prepand(3)
-list.prepand(4)
-list.append(0)
-list.insertByIndex(3,2.4)
+list.append(1)
+list.append(2)
+list.append(3)
 console.log(list.print())
-list.removedByValue(1)
+list.reverse()
 console.log(list.print())
-console.log(list.searchByValue(0))
 
 
 
