@@ -1,75 +1,108 @@
+// ds which allow us to store or retreive key value pair efficiently
+//using hash function 
+// application of hash table 
+// database indexing , password storage , cryptography , block chain , 
+// image processing, file comparison , fraud detection 
+// operation for hashtable 
+// search 
+// insert 
+// delete 
+// print 
 class HashTable{
 	constructor(length){
-		this.item = new Array(length)
-		this.size = 0
-	}
-	_hash(key){
-		let index = 0
-		for(let i=0;i<key.length;i++){
-			index+= key.charCodeAt(i)
-		}
-		return index%this.item.length
-	}
-	set(key,value){
+  	this.item = new Array(length)
+    this.size = 0
+  }
+  _hash(key){
+  	let res = 0 
+    for(let i =0; i<key.length;i++){
+    	res+= key.charCodeAt(i)
+    }
+    return res%this.item.length
+  }
+ set(key,value){
 		const index = this._hash(key)
-		if(this.item[index] ){
-			for(let i =0 ; i< this.item[index].length;i++){
-				if(this.item[index][i][0]===key){
-					this.item[index][i][1]=== value
-				}
-			}
-			this.item[index].push([key,value])
+		if(this.item[index]){
+ 			for(let i =0; i<this.item[index].length;i++){
+      		if(this.item[index][i][0]===key){
+          		this.item[index][i][1]=value
+              return
+          }
+      }
+      	this.item[index].push([key,value])
 		}
-		else{
-			this.item[index] = []
-			this.item[index].push([key,value])
+    else{
+    	this.item[index] = []
+      this.item[index].push([key,value])
 		}
 		this.size++
 	}
-	get(key){
-		const index = this._hash(key)
-		if(this.item[index]){
-			for(let i =0; i<this.item[index].length;i++){
-				if(this.item[index][i][0]===key){
-					// console.log(this.item[index][i][1])
-					return this.item[index][i][1]
-				}
-			}
-		}
-		else{
-			return undefined
-		}
+  get(key){
+      const index = this._hash(key)
+      if(this.item[index]){
+      
+					for(let i=0; i<this.item[index].length; i++){
+          	if(this.item[index][i][0]===key){
+             	return this.item[index][i][1]
+            }
+          }
+         let message = 'not found'
+				 return message
+      }else{
+        let message = 'not found'
+				return message
+     }
 	}
-	remove(key){
-		const index = this._hash(key)
-		if(this.item[index]){
-			for(let i =0; i<this.item[index].length; i++){
-				if(this.item[index][i][0]===key){
-					this.item[index].splice(i,1)
-					this.size--
-					return true
-				}
-			}
-		}
-		else{
-			console.log('not found')
-			return false
-		}
-	}
-	display(){
-		this.item.forEach((value,index)=>{
-			let iterVal = value.map(([key,value])=>`[${key}, ${value}]`)
-			console.log(`${index} : ${iterVal}`)
-		})
-	}
+  print(){
+  console.log('thisitem',this.item)
+  	for(let i =0 ;i<this.item.length; i++){
+    		console.log(i, this.item[i])
+    }
+  }
+  remove(key){
+  	const index = this._hash(key)
+    if(this.item[index]){
+    	for(let i=0; i<this.item[index].length;i++){
+      		if(this.item[index][i][0]===key){
+          		this.item[index].splice(i,1)
+              this.size--
+              return 
+          }
+      }
+    }
+  }
 }
 
+const hash = new HashTable(5)
+hash.set('vijay',1)
+hash.set('Utkarsh',2)
+hash.set('Hemant',3)
+hash.set('Sahil',4)
+hash.set('Santosh',5)
+hash.set('Utkarsh',2.1)
+console.log(hash.get('vijay'))
+console.log(hash.get('Utkarsh'))
+console.log(hash.get('Hemant'))
+console.log(hash.get('Sahil'))
+console.log(hash.get('Santosh')) 
+hash.remove('Sahil')
+hash.remove('vijay')
+console.log(hash.get('Sahil'))
+console.log(hash.get('vijay'))
 
-const hash = new HashTable(20)
-hash.set('hm',1)
-hash.set('bill',2)
-hash.set('ny',+5)
-hash.set('redyy',8232)
-// console.log(hash.get('bill'))
-hash.remove('hm')
-// hash.display()
+/* hash.print() */
+/* console.log(hash.get('vijay')) */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
