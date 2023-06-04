@@ -102,9 +102,9 @@ list.prepand(2)
 list.prepand(1)
 list.append(3)
 list.removeFromFront()
-console.log(list.print())
+// console.log(list.print())
 list.removeFromEnd()
-console.log(list.print())
+// console.log(list.print())
 
 
 
