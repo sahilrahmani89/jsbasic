@@ -18,9 +18,10 @@
  // traversing , visiting every node present in binary search tree
  /// types of traverse method
 //     depth of first search - its forms as 
-    //There are three main types of traverse methods in a binary search tree(tutorialandexample.com):
 
-//In-order traversal: This method visits the left subtree, then the root, and then the right subtree. It gives the nodes in non-decreasing order(geeksforgeeks.org). For example, if the tree is:
+
+//In-order traversal: This method visits the left subtree, read the data and then the right subtree.
+/* It gives the nodes in non-decreasing order */
 
 // 100
 // /   \
@@ -37,10 +38,11 @@
 // 20   200
 // / \   / \
 // 10 30 150 300
-
+// 100, 20, 10, 30, 200, 150, 300
 //The pre-order traversal would be: 100 20 10 30 200 150 300.
 
-//•  Post-order traversal: This method visits the left subtree, then the right subtree, and then the root. It is used to delete the tree or to get postfix expressions on an expression tree(geeksforgeeks.org). For example, if the tree is:
+//•  Post-order traversal: This method visits the left subtree, then the right subtree, and then the root. 
+//It is used to delete the tree or to get postfix expressions on an expression tree For example, if the tree is:
 
 // 100
 ///   \
@@ -111,10 +113,36 @@ class Bst{
     }
     
   }
+  preOrder(root){
+    if(!this.isEmpty()){
+        if(root!==null){
+            console.log(root.value)
+            this.preOrder(root.left)
+            this.preOrder(root.right)
+        }
+    }
+  }
+  inOrder(root){
+    if(!this.isEmpty()){
+        if(root){
+          this.inOrder(root.left)
+          console.log(root.value)
+          this.inOrder(root.right)
+        }
+    }
+  }
   print(){
     console.log('bst',this.root)
   }
-  
+  postOrder(root){
+    if(!this.isEmpty()){
+        if(root){
+            this.postOrder(root.left)
+            this.postOrder(root.right)
+            console.log(root.value)
+        }
+    }
+  }
 }
 
 const bst = new Bst()
@@ -123,14 +151,13 @@ bst.insert(5)
 bst.insert(13)
 bst.insert(4)
 bst.insert(7)
-console.log(bst.search(bst.root,10))
+/* console.log(bst.search(bst.root,10))
 console.log(bst.search(bst.root,5))
-console.log(bst.search(bst.root,13))
-console.log(bst.search(bst.root,4))
-console.log(bst.search(bst.root,7))
-console.log(bst.search(bst.root,9))
-console.log(bst.search(bst.root,15))
-console.log(bst.search(bst.root,6))
+console.log(bst.search(bst.root,13)) */
+/* bst.preOrder(bst.root) */
+/* bst.inOrder(bst.root) */
+bst.postOrder(bst.root)
+
 
 
 
