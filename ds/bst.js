@@ -49,11 +49,72 @@
 // 20   200
 // / \   / \
 // 10 30 150 300
-
+// output as 10, 30, 20, 150, 300, 200 , 100
 //The post-order traversal would be: 10 30 20 150 300 200 100.
 //     breadth first search
+// explore all node at present depth prior to moving on node 
+// of next depth level
+//// 100
+///   \
+// 20   200
+// / \   / \
+// 10 30 150 300
+// bfs traversal as 100 20 200 10 30 150 300
+//     breadth first search // level order 
+// create a queue
+// enqueue the root node 
+// as long as queue exist 
+//    a.dequeue the node front dorm queue
+      // b. read the nodes value
+      // c. enqueue the left child if exist
+      // d. enqueu the rigth child if exist
+// Binary Search Tree Min n Mac value 
+// the most left side value  is smalllest value in Binary Search tree
+// the most right side value is greatest value in binary search tree
+      
  //deleting 
- 
+ {
+ class Queues{
+      constructor(){
+        this.item ={}
+        this.tail = 0
+        this.head = 0
+        this.size= 0
+      }
+
+      isEmpty(){
+        return this.size ===0
+      }
+
+      enqueue(value){
+        this.item[this.tail] = value
+        this.tail ++
+        this.size++
+      }
+      dequeue(){
+        const deq = this.item[this.head]
+        delete this.item[this.head]
+        this.head ++
+        this.size--
+        return deq
+      }
+      peek(){
+        return this.item[this.head]
+      }
+      print(){
+        return this.item
+      }
+  }
+
+  // const queue = new Queue()
+  // console.log(queue.isEmpty())
+  // queue.enqueue(1)
+  // queue.enqueue(2)
+  // queue.enqueue(3)
+  // console.log(queue.print())
+  // queue.dequeue()
+  // console.log(queue.print())
+  
  class Node{
    constructor(value){
       this.value = value
@@ -131,9 +192,6 @@ class Bst{
         }
     }
   }
-  print(){
-    console.log('bst',this.root)
-  }
   postOrder(root){
     if(!this.isEmpty()){
         if(root){
@@ -141,6 +199,39 @@ class Bst{
             this.postOrder(root.right)
             console.log(root.value)
         }
+    }
+  }
+  print(){
+    console.log('bst',this.root)
+  }
+  levelOrder(){
+    const queue = new Queues()
+    queue.enqueue(this.root)
+    while(queue.size){
+      // console.log('boom')
+      let curr = queue.dequeue()
+      console.log(curr.value)
+       if(curr.left){
+        queue.enqueue(curr.left)
+      }
+      if(curr.right){
+        queue.enqueue(curr.right)
+      }
+    }
+  }
+  min(root){
+    if(!root.left){
+        console.log(root.value)
+        return root.value
+    }else{
+      this.min(root.left)
+    }
+  }
+  max(root){
+    if(!root.right){
+      console.log(root.value)
+    }else{
+      this.max(root.right)
     }
   }
 }
@@ -151,15 +242,16 @@ bst.insert(5)
 bst.insert(13)
 bst.insert(4)
 bst.insert(7)
-/* console.log(bst.search(bst.root,10))
-console.log(bst.search(bst.root,5))
+console.log(bst.search(bst.root,10))
+/* console.log(bst.search(bst.root,5))
 console.log(bst.search(bst.root,13)) */
 /* bst.preOrder(bst.root) */
 /* bst.inOrder(bst.root) */
-bst.postOrder(bst.root)
-
-
-
+/* bst.postOrder(bst.root) */
+/* bst.levelOrder()  
+ */
+/* bst.min(bst.root)
+bst.max(bst.root) */
 
 
 
@@ -167,3 +259,4 @@ bst.postOrder(bst.root)
 /* bst.print() */
 
 
+}
