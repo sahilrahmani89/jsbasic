@@ -391,3 +391,4 @@ if (str.includes(substring)) {
 //it first compresses the input string to '3w2g1o2p'. The final output is
 // 'wchalangetokemwggchalangetokempo2chalangetokem', 
 //where each character in the compressed string is interspersed with a character from the chalangetokem string.
+

@@ -73,6 +73,20 @@
 // the most right side value is greatest value in binary search tree
       
  //deleting 
+//  Start at the root node of the BST.
+// Find the node to be deleted. If the node does not exist in the tree, the deletion operation is complete.
+// If the node to be deleted has no children (leaf node), simply remove it from the tree.
+// If the node to be deleted has only one child, replace the node with its child.
+// If the node to be deleted has two children, find the node's successor (the smallest node in the right subtree) 
+// or predecessor (the largest node in the left subtree).
+// To find the successor, go right once from the current node and then keep going left until you reach the 
+// smallest value.
+// To find the predecessor, go left once from the current node and then keep going right until you reach the 
+// largest value.
+// Replace the node to be deleted with its successor/predecessor.
+// Delete the successor/predecessor node from its original position.
+// After replacing the node, make sure to update the parent node's reference to the replaced node.
+// The deletion operation is complete.
  {
  class Queues{
       constructor(){
@@ -240,8 +254,10 @@ const bst = new Bst()
 bst.insert(10)
 bst.insert(5)
 bst.insert(13)
-bst.insert(4)
-bst.insert(7)
+bst.insert(3)
+// bst.insert(7)
+bst.insert(2)
+bst.print()
 console.log(bst.search(bst.root,10))
 /* console.log(bst.search(bst.root,5))
 console.log(bst.search(bst.root,13)) */
@@ -260,3 +276,4 @@ bst.max(bst.root) */
 
 
 }
+
