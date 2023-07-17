@@ -392,3 +392,93 @@ if (str.includes(substring)) {
 // 'wchalangetokemwggchalangetokempo2chalangetokem', 
 //where each character in the compressed string is interspersed with a character from the chalangetokem string.
 
+// check maximum num
+{
+const item = [1,3,5,2,8,2]
+
+function findMax(item){
+    let max = 0
+    for(let i=0;i<item.length;i++){
+      if(max<item[i]){
+        max = item[i]
+      }
+    }
+    // console.log('max',max)
+    return max
+}
+findMax(item)
+}
+{
+const item = [1,3,5,2,8,2,0]
+
+function findMin(item){
+    let min  = item[0]
+    for(let i=0;i<item.length;i++){
+      if(min>item[i]){
+        min = item[i]
+      }
+    }
+    // console.log('min',min)
+    return min
+}
+findMin(item)
+}
+{
+  const item = [
+    {name:'Abc',qt:1},
+    {name:'def',qt:4},
+    {name:'ghi',qt:9},
+    {name:'jkl',qt:2}
+  ]
+
+  const findMax = (item) =>{
+    let max = {qt:0}
+    for(let i=0;i<item.length;i++){
+      if(max.qt<item[i].qt){
+        max = item[i]
+      }
+    }
+    // console.log('max',max)
+    return max
+  }
+  findMax(item)
+}
+{
+  const item = [
+    {name:'Abc',qt:1},
+    {name:'def',qt:4},
+    {name:'ghi',qt:9},
+    {name:'jkl',qt:0}
+  ]
+
+  const findMin = (item) =>{
+    let min = item[0]
+    for(let i=0;i<item.length;i++){
+      if(min.qt>item[i].qt){
+        min = item[i]
+      }
+    }
+    console.log('min',min)
+    return min
+  }
+  findMin(item)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
