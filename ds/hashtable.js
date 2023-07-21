@@ -38,26 +38,29 @@ class HashTable{
 		this.size++
 	}
   get(key){
-      const index = this._hash(key)
-      if(this.item[index]){
-      
-					for(let i=0; i<this.item[index].length; i++){
-          	if(this.item[index][i][0]===key){
-             	return this.item[index][i][1]
+      let message = `Not found`
+            const index = this._uniqueId(key)
+            if(this.item[index]){
+                for(let i =0 ; i<this.item[index].length;i++){
+                    if(this.item[index][i][0]===key){
+                        return this.item[index][i][1]
+                    } 
+                }
+                return message
+            }else{
+                return message
             }
-          }
-         let message = 'not found'
-				 return message
-      }else{
-        let message = 'not found'
-				return message
-     }
 	}
   print(){
-  console.log('thisitem',this.item)
-  	for(let i =0 ;i<this.item.length; i++){
-    		console.log(i, this.item[i])
-    }
+   let res = ``
+            for(let i=0; i<this.item.length;i++){      
+                if(this.item[i]){
+                    for(let j=0; j<this.item[i].length; j++){
+                     res+= `${this.item[i][j][0]} : ${this.item[i][j][1]}, `
+                    }
+                }
+            }
+      return res
   }
   remove(key){
   	const index = this._hash(key)
