@@ -1,155 +1,83 @@
-Sorting Algorithms:
-
-// Bubble Sort: It repeatedly swaps adjacent elements if they are in the 
-// wrong order until the entire array is sorted.
-// Selection Sort: It divides the array into a sorted and an unsorted region, repeatedly finding the 
-// minimum element from the unsorted region and swapping it with the leftmost unsorted element.
-// Insertion Sort: It builds the final sorted array one item at a time by repeatedly inserting an element 
-// into the sorted part of the array.
-// Merge Sort: It divides the array into two halves, sorts them recursively, and then merges the two sorted 
-// halves into one.
-// Quick Sort: It selects a pivot element, partitions the array into two sub-arrays based on the pivot, and 
-// then recursively sorts the sub-arrays.
-//heap sort
-//counting sort
 {
-	//bubble sort
-function bubbleSort(arr) {
-  let n = arr.length;
-  for (let i = 0; i < n - 1; i++) {
-    for (let j = 0; j < n - i - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        // Swap elements
-        let temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
-      }
+// selection sort 
+// Big O Notation - Worst Case Time Complexity - O(N2) -
+// not used in real world example, its not efficient 
+// how its work , theoratically 
+// replace lesser number one by one while iterating from 0th el to end of array
+// replace min number with 0th element and 0th element the min number pos
+// iterate this at end of loop
+    // Each Iteration
+    // [4,1,3,2,2,3,10,1] - initial phase 
+     // [1,1,3,2,2,3,10,4]
+    //  [1,1,2,2,3,3,10,4]
+    // [1,1,2,2,3,3,4,10]
+    const arr = [4,1,3,2,2,3,10,1]
+    function selectionSort(arr){
+       for(let i =0; i<arr.length; i++){
+            let min = i
+            for(let j =i+1; j<arr.length; j++){
+               if(arr[i]>arr[j]){
+                 min = j
+               }
+            }
+            if(i!==min){
+                let temp = arr[i]
+                arr[i]  = arr[min]
+                arr[min] = temp
+            }
+       }
+       return arr
     }
-  }
-  return arr;
-}
-
-let arr = [64, 34, 25, 12, 22, 11, 90];
-console.log(bubbleSort(arr)); // Output: [11, 12, 22, 25, 34, 64, 90]
+    // console.log('selectionSort',selectionSort(arr))
 }
 {
-	// selection sorts
-	function selectionSort(arr) {
-  let n = arr.length;
-  for (let i = 0; i < n - 1; i++) {
-    let minIndex = i;
-    for (let j = i + 1; j < n; j++) {
-      if (arr[j] < arr[minIndex]) {
-        minIndex = j;
-      }
+    // bubble sort 
+    // its worst time complexity Big O(N^2)
+    // compare adjacent element , swap the postion 
+    // basic concept -> for ascending order -> and for first iteration the greated element will be at end 
+    // 
+    const arr = [4,1,3,2,2,3,10,1]
+    function bubbleSort(arr){
+        for(let i =0; i<arr.length-1;i++){
+            for(let j =0; j<arr.length-1-i;j++){
+                if(arr[j]>arr[j+1]){
+                    let temp = arr[j]
+                    arr[j] = arr[j+1]
+                    arr[j+1] = temp 
+                }
+            }
+        }
+        return arr
     }
-    // Swap elements
-    let temp = arr[minIndex];
-    arr[minIndex] = arr[i];
-    arr[i] = temp;
-  }
-  return arr;
-}
+    // console.log('bubble Sort',bubbleSort(arr))
 
-let arr = [64, 25, 12, 22, 11];
-console.log(selectionSort(arr)); // Output: [11, 12, 22, 25, 64]
 }
 
 {
-	//insertion sort
-	function insertionSort(arr) {
-  let n = arr.length;
-  for (let i = 1; i < n; i++) {
-    let key = arr[i];
-    let j = i - 1;
-    while (j >= 0 && arr[j] > key) {
-      arr[j + 1] = arr[j];
-      j--;
+    // insetion sort 
+    // worst time complexity ON^2
+    // its divided into two parts first one is sorted another one is unsorted 
+    // intial phase , lets assume 1st element is sorted and remain unsorted 
+    // compare it with unsorted elements and make it sorted.
+    // this will run until length of an array 
+    const arr = [4,1,3,2,2,3,10,1]
+    const insertionSort = (arr) =>{
+        for(let i =1; i<arr.length;i++){
+            let j = i-1
+            let next = arr[i]
+            while(j>=0 && arr[j]>next){
+                arr[j+1] = arr[j]
+                j--
+            }
+            arr[j+1]= next
+            
+        }
+        return arr
     }
-    arr[j + 1] = key;
-  }
-  return arr;
-}
-
-let arr = [12, 11, 13, 5, 6];
-console.log(insertionSort(arr)); // Output: [5, 6, 11, 12, 13]
-}
-{
-	//merge sort
-	function mergeSort(arr) {
-  if (arr.length <= 1) {
-    return arr;
-  }
-
-  const mid = Math.floor(arr.length / 2);
-  const left = mergeSort(arr.slice(0, mid));
-  const right = mergeSort(arr.slice(mid));
-
-  return merge(left, right);
-}
-
-function merge(left, right) {
-  const result = [];
-  let i = 0;
-  let j = 0;
-
-  while (i < left.length && j < right.length) {
-    if (left[i] <= right[j]) {
-      result.push(left[i]);
-      i++;
-    } else {
-      result.push(right[j]);
-      j++;
-    }
-  }
-
-  return result.concat(left.slice(i)).concat(right.slice(j));
-}
-
-let arr = [12, 11, 13, 5, 6, 7];
-console.log(mergeSort(arr)); // Output: [5, 6, 7, 11, 12, 13]
-}
-{
-	//quick sort
-	function quickSort(arr) {
-  if (arr.length <= 1) {
-    return arr;
-  }
-
-  const pivot = arr[arr.length - 1];
-  const left = [];
-  const right = [];
-
-  for (let i = 0; i < arr.length - 1; i++) {
-    if (arr[i] < pivot) {
-      left.push(arr[i]);
-    } else {
-      right.push(arr[i]);
-    }
-  }
-
-  return [...quickSort(left), pivot, ...quickSort(right)];
-}
-
-let arr = [64, 25, 12, 22, 11];
-console.log(quickSort(arr)); // Output: [11, 12, 22, 25, 64]
+    // console.log('insertionSort',insertionSort(arr))
 
 }
 {
-	//counting sort
+    // quick sort 
+    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
