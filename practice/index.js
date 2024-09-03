@@ -11,7 +11,35 @@
     }
     console.log(arr)
 }
+//  find if in array parenthesis closed or not 
 {
- 
-    
+
+    function isBalanced(arr){
+        let stack = []
+        let  obj={
+            ')': '(',
+            '}': '{',
+            ']': '['
+        }
+  
+        for(let char of arr){
+            if(char==='(' ||  char==='{' || char ==='['  ){
+                stack.push(char)
+            }else if(char ===')' ||  char==='}' || char ===']'){
+                  let removedChar =  stack.pop()
+                  if(removedChar!==obj[char]){
+        
+                        return false
+                  }
+            }
+        }
+        return stack.length === 0
+    }
+    const input1 = ['{', '(', ')', '}', '[', ']']; // Balanced
+    const input2 = ['{', '(', '}', '[', ']']; // Not balanced
+
+
+    // console.log(isBalanced(input1));  // Output: true
+    // console.log(isBalanced(input2));  // Output: false
+   
 }
