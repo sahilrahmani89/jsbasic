@@ -1,0 +1,18 @@
+// Complexity from best to worst denotion
+0(1)
+0(log n)
+O(n)
+O(n log n)
+O(n^2)
+O(2^n)
+O(n!)
+
+// time Complexity     
+Array : ->  Access: O(1), Search O(n), Insertion:O(n), Deletion:O(n) 
+Stack :  Access: O(n), Search O(n), Insertion: O(1), Deletion:O(1)
+Queue :  Access: O(n), Search O(n), Insertion: O(1), Deletion:O(1)
+Singly-Linked-List : Access: O(n), Search O(n), Insertion: O(1), Deletion:O(1)
+Double-Linked-List : Access: O(n), Search O(n), Insertion: O(1), Deletion:O(1)
+Skip List: Access O(log n), Search O(log n), Insertion : O(log n), Deletion:O(log n)
+Hash Table : Access : N/A, Search :O(1), Insertion:O(1), Deletion:O(1)
+Binary Search Tree : Access:O(log n), Search : O(log n), Insertion: O(log  n), Deletion : O (log n)
