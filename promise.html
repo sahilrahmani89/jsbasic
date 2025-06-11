@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Promise</title>
+
+  <!-- Link to external CSS (optional) -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Favicon (optional) -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Meta description for SEO (optional) -->
+  <meta name="Promises" content="">
+  <style>
+    .btn{
+        min-width: 120px;
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <!-- Promise.all
+
+Promise.allSettled
+
+Promise.any
+
+Promise.race
+
+Promise.resolve
+
+Promise.reject -->
+
+
+  <button id="promiseNormal" class="btn">Promise Call</button>
+  <button id="promiseAll" class="btn">Promise all</button>
+  <p> Promise aall Either all resolved promise or first rejected promise</p>
+  <button id="promiseAny" class="btn">Promise Any</button>
+  <p>Promise Any Resolved any first resolved and rejct if all api fails</p>
+  <button id="promiseRace" class="btn">Promise Race</button>
+    <p>Promise race any first resolved or rejcted promise</p>
+    <button id="promiseAllSettled" class="btn">Promise Settled</button>
+    <p>it will settle all promises and return an array of objects with status and value or reason</p>
+  <!-- Link to external JavaScript file (optional) -->
+  <script src="promise.js"></script>
+</body>
+</html>
